@@ -31,7 +31,9 @@ install:
 	# log directory
 	mkdir -p "$(DESTDIR)/var/log/nexus"
         # patch init script - PID
-	sed -i -e 's;#PIDDIR=.*;PIDDIR="/var/run";g' "$(DESTDIR)/etc/init.d/nexus"
+	sed -i -e 's;#PIDDIR=.*;PIDDIR="/var/run/nexus";g' "$(DESTDIR)/etc/init.d/nexus"
+	sed -i -e 's;#RUN_AS_USER=.*;RUN_AS_USER="nexus";g' "$(DESTDIR)/etc/init.d/nexus"
+	sed -i -e 's;NEXUS_HOME=.*;NEXUS_HOME="/var/lib/nexus";g' "$(DESTDIR)/etc/init.d/nexus"
 	# patch nexus.properties file - directories and port
 	sed -i -e 's#application-port=.*#application-port=80#g' $(PROPERTY_FILE)
 	sed -i -e 's#nexus-work=.*#nexus-work=/var/lib/nexus#g' $(PROPERTY_FILE)
