@@ -1,4 +1,4 @@
-sonatype-nexus (2.0.1) UNRELEASED; urgency=low
+nexus (2.0.1) unstable; urgency=low
 
   * Packaged as debian package
 

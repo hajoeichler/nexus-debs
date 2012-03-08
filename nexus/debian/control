@@ -1,11 +1,11 @@
-Source: sonatype-nexus
+Source: nexus
 Maintainer: Hajo Eichler <eichler.hajo@googlemail.com>
 Section: misc
 Priority: optional
 Standards-Version: 2.0.1
 Build-Depends: debhelper (>= 8)
 
-Package: sonatype-nexus
+Package: nexus
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, default-jre-headless
 Description: Sonatype Nexus Maven Repository
