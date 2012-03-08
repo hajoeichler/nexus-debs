@@ -7,5 +7,5 @@ Build-Depends: debhelper (>= 8)
 
 Package: nexus
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, default-jre-headless
+Depends: ${misc:Depends}, ${shlibs:Depends}, adduser, default-jre-headless
 Description: Sonatype Nexus Maven Repository
