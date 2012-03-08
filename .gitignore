@@ -1,0 +1,9 @@
+nexus/debian/files
+nexus/debian/*.log
+nexus/debian/nexus.substvars
+nexus/debian/nexus/
+nexus/nexus-*/
+*.build
+*.changes
+*.deb
+*~
