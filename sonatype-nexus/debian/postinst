@@ -8,16 +8,23 @@ set -e
 case "$1" in
     configure)
 
-        # Create nexus user if it doesn't exist.
+        # Create nexus group and user if it doesn't exist.
+	if ! getent group | grep -q  -e '^nexus' ; then
+            addgroup --system nexus
+	fi
+
         if ! id nexus > /dev/null 2>&1 ; then
             adduser --system --home /var/lib/nexus --no-create-home \
-                --ingroup nogroup --disabled-password --shell /bin/bash \
+                --ingroup nexus --disabled-password --shell /bin/bash \
                 nexus
         fi
 
-        # set file permissions
-        chown -R nexus.nogroup /var/lib/nexus /var/run/nexus /var/log/nexus
-        chown -R nexus.nogroup /opt/nexus/logs /opt/nexus/tmp
+        # set directory permissions
+        chown -R nexus.nexus /var/lib/nexus
+        chown -R nexus.nexus /var/lib/nexus-wrapper-tmp
+        chown -R nexus.nexus /var/lib/nexus-wrapper-logs
+        chown -R nexus.nexus /var/run/nexus
+        chown -R nexus.nexus /var/log/nexus
 
     ;;
 
@@ -33,6 +40,3 @@ esac
 #DEBHELPER#
 
 exit 0
-
-
-
