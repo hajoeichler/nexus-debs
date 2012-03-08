@@ -20,11 +20,9 @@ case "$1" in
         fi
 
         # set directory permissions
-        chown -R nexus.nexus /var/lib/nexus
-        chown -R nexus.nexus /var/lib/nexus-wrapper-tmp
-        chown -R nexus.nexus /var/lib/nexus-wrapper-logs
-        chown -R nexus.nexus /var/run/nexus
-        chown -R nexus.nexus /var/log/nexus
+        chown -R nexus:nexus /var/lib/nexus
+        chown -R nexus:nexus /var/run/nexus
+        chown -R nexus:nexus /var/log/nexus
 
     ;;
 

@@ -37,7 +37,7 @@ install:
 	sed -i -e 's;#RUN_AS_USER=.*;RUN_AS_USER="nexus";g' $(INITD_FILE)
 	sed -i -e 's;NEXUS_HOME=.*;NEXUS_HOME="/opt/nexus";g' $(INITD_FILE)
 	# patch nexus.properties file - directories
-	sed -i -e 's#nexus-work=.*#nexus-work=/var/lib/nexus#g' $(PROPERTY_FILE)
+	sed -i -e 's#nexus-work=.*#nexus-work=/var/lib/nexus/work#g' $(PROPERTY_FILE)
 	sed -i -e 's#nexus-webapp=.*#nexus-webapp=/opt/nexus/nexus#g' $(PROPERTY_FILE)
 	sed -i -e 's#runtime=.*#runtime=/opt/nexus/nexus/WEB-INF#g' $(PROPERTY_FILE)
 	# log directory
@@ -45,15 +45,17 @@ install:
 	# create PID dir
 	mkdir -p "$(DESTDIR)/var/run/nexus"
 	# create nexus working directory
-	mkdir -p "$(DESTDIR)/var/lib/nexus"
+	mkdir -p "$(DESTDIR)/var/lib/nexus/work"
 	# create tmp and logs dir for wrapperunder /var/lib
 	rm -rf "$(DESTDIR)/opt/nexus/logs"
-	mkdir -p "$(DESTDIR)/var/lib/nexus-wrapper-logs"
-	ln -s "../../var/lib/nexus-wrapper-logs" "$(DESTDIR)/opt/nexus/logs"
+	mkdir -p "$(DESTDIR)/var/lib/nexus/logs"
+	ln -s "../../var/lib/nexus/logs" "$(DESTDIR)/opt/nexus/logs"
 	rm -rf "$(DESTDIR)/opt/nexus/tmp"
-	mkdir -p "$(DESTDIR)/var/lib/nexus-wrapper-tmp"
-	ln -s "../../var/lib/nexus-wrapper-tmp" "$(DESTDIR)/opt/nexus/tmp"
+	mkdir -p "$(DESTDIR)/var/lib/nexus/tmp"
+	ln -s "../../var/lib/nexus/tmp" "$(DESTDIR)/opt/nexus/tmp"
 	# create symlink to nexus conf
 	mkdir -p "$(DESTDIR)/etc/nexus"
 	ln -s "../../opt/nexus/conf" "$(DESTDIR)/etc/nexus/wrapper"
 	ln -s "../../var/lib/nexus/conf" "$(DESTDIR)/etc/nexus/nexus"
+	# change file mode for all jars
+	find "$(DESTDIR)" -name "*.jar" -type f -print0 | xargs -0 chmod a-x
