@@ -24,6 +24,9 @@ case "$1" in
         chown -R nexus:nexus /var/run/nexus
         chown -R nexus:nexus /var/log/nexus
 
+        # set file permissions for config
+        chmod 0640 /var/lib/nexus/work/conf/*
+
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

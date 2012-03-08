@@ -59,3 +59,6 @@ install:
 	ln -s "../../var/lib/nexus/work/conf" "$(DESTDIR)/etc/nexus/nexus"
 	# change file mode for all jars
 	find "$(DESTDIR)" -name "*.jar" -type f -print0 | xargs -0 chmod a-x
+	# copy standard config into working dir
+	mkdir -p "$(DESTDIR)/var/lib/nexus/work/conf"
+	cp -r conf/* "$(DESTDIR)/var/lib/nexus/work/conf"

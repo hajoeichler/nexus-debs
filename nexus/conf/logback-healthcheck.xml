@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2011-2012 Sonatype, Inc. All rights reserved.
+    Includes the third-party code listed at http://links.sonatype.com/products/rhc/oss/attributions.
+    "Sonatype" is a trademark of Sonatype, Inc.
+
+-->
+<included>
+  <!-- Uncomment the line below to adjust the logging for repository health check
+  <logger name="com.sonatype.nexus.plugins.healthcheck" level="DEBUG" />
+  -->
+</included>
