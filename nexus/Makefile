@@ -56,6 +56,6 @@ install:
 	# create symlink to nexus conf
 	mkdir -p "$(DESTDIR)/etc/nexus"
 	ln -s "../../opt/nexus/conf" "$(DESTDIR)/etc/nexus/wrapper"
-	ln -s "../../var/lib/nexus/conf" "$(DESTDIR)/etc/nexus/nexus"
+	ln -s "../../var/lib/nexus/work/conf" "$(DESTDIR)/etc/nexus/nexus"
 	# change file mode for all jars
 	find "$(DESTDIR)" -name "*.jar" -type f -print0 | xargs -0 chmod a-x
