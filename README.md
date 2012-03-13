@@ -5,6 +5,7 @@ Tested on Ubuntu 11.10 - i386 and amd64
 To build the deb:
 
     ./download-nexus.sh
+    cd nexus
     debuild --no-lintian -uc -us -b
 
 Features:
@@ -13,6 +14,7 @@ Features:
 1. Install to `/opt/nexus`
 1. Configuration in `/etc/nexus`
 1. Working directory in `/var/lib/nexus`
+1. Simple script to update version `update-version.sh`
 
 Known issues:
 
