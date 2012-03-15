@@ -6,4 +6,6 @@ nexus/nexus-*/
 *.build
 *.changes
 *.deb
+*.tar.gz
 *~
+sonatype-work
