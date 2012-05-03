@@ -4,9 +4,7 @@ Tested on Ubuntu 11.10 - i386 and amd64
 
 To build the deb:
 
-    ./download-nexus.sh
-    cd nexus
-    debuild --no-lintian -uc -us -b
+    ./build.sh
 
 Features:
 
