@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NEXUS_VERSION="2.0.2"
+NEXUS_VERSION="2.0.4"
 
 set -e
 
