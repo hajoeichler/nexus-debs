@@ -1,6 +1,6 @@
 This project helps you to package sonatype nexus as a debian package.
 
-Tested on Ubuntu 11.10 - i386 and amd64
+Tested on Ubuntu 11.10 and 12.04 - i386 and amd64
 
 To build the deb:
 
