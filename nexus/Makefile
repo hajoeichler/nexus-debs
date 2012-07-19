@@ -38,7 +38,7 @@ install:
 	mkdir -p "$(DESTDIR)/etc/init.d"
 	cp nexus-$(NEXUS_VERSION)/bin/nexus "$(DESTDIR)/etc/init.d/nexus"
 	# patch init script - PID, USER and HOME
-	sed -i -e 's;#PIDDIR=.*;PIDDIR="/var/run";g' $(INITD_FILE)
+	sed -i -e 's;#PIDDIR=.*;PIDDIR="/var/run/nexus";g' $(INITD_FILE)
 	sed -i -e 's;#RUN_AS_USER=.*;RUN_AS_USER="nexus";g' $(INITD_FILE)
 	sed -i -e 's;NEXUS_HOME=.*;NEXUS_HOME="/opt/nexus";g' $(INITD_FILE)
 	# patch nexus.properties file - directories

@@ -9,6 +9,10 @@ unpack_and_move() {
   mv nexus-${NEXUS_VERSION} nexus/
 }
 
+apply_patch() {
+  patch nexus/nexus-${NEXUS_VERSION}/bin/nexus init-script-patch
+}
+
 create_deb() {
   cd nexus
   debuild --no-lintian -uc -us -b
@@ -25,4 +29,5 @@ readonly NEXUS_VERSION="2.0.6"
 
 download
 unpack_and_move
+apply_patch
 create_deb

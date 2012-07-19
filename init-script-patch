@@ -1,0 +1,11 @@
+205a206,215
+> # Check for existence of directory and adjust user name
+> if [ ! -e "$PIDDIR" ]
+> then
+>     mkdir -p "$PIDDIR"
+> fi
+> if [ -n "$RUN_AS_USER" ]
+> then
+>     chown -R "$RUN_AS_USER" "$PIDDIR"
+> fi
+> 

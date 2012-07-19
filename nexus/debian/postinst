@@ -21,7 +21,6 @@ case "$1" in
 
         # set directory permissions
         chown -R nexus:nexus /var/lib/nexus
-        chown -R nexus:nexus /var/run/nexus
         chown -R nexus:nexus /var/log/nexus
 
         # set file permissions for config
