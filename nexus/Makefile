@@ -12,6 +12,11 @@ ifeq ($(ARCH),amd64)
 BIT=64
 endif
 
+clean:
+	rm -rf ../nexus_*_amd64.build
+	rm -rf ../nexus_*_amd64.changes
+	rm -rf ../nexus_*_amd64.deb
+
 compile:
 	echo "Nothing to compile here."
 
