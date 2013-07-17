@@ -3,7 +3,7 @@
 PROPERTY_FILE := "$(DESTDIR)/opt/nexus/conf/nexus.properties"
 INITD_FILE := "$(DESTDIR)/etc/init.d/nexus"
 ARCH := $(shell dpkg --print-architecture)
-NEXUS_VERSION := "2.2-01"
+NEXUS_VERSION := "2.5.1-01"
 
 ifeq ($(ARCH),i386)
 BIT=32
