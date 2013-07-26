@@ -1,12 +1,13 @@
 #!/bin/sh
 
 download() {
-  wget http://www.sonatype.org/downloads/nexus-${NEXUS_VERSION}-bundle.tar.gz
+  wget -nc http://www.sonatype.org/downloads/nexus-${NEXUS_VERSION}-bundle.tar.gz
 }
 
 unpack_and_move() {
-  tar xvfz nexus-${NEXUS_VERSION}-bundle.tar.gz
-  mv nexus-${NEXUS_VERSION} nexus/
+  pushd nexus
+  tar xvfz ../nexus-${NEXUS_VERSION}-bundle.tar.gz
+  popd
 }
 
 apply_patch() {
@@ -25,7 +26,7 @@ if [ "$1" != "-b" ]; then
   exit 1
 fi
 
-readonly NEXUS_VERSION="2.5.1-01"
+readonly NEXUS_VERSION="2.6.0-05"
 
 download
 unpack_and_move
