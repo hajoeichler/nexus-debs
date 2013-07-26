@@ -1,12 +1,13 @@
 #!/bin/sh
 
 download() {
-  wget http://www.sonatype.org/downloads/nexus-${NEXUS_VERSION}-bundle.tar.gz
+  wget -nc http://www.sonatype.org/downloads/nexus-${NEXUS_VERSION}-bundle.tar.gz
 }
 
 unpack_and_move() {
-  tar xvfz nexus-${NEXUS_VERSION}-bundle.tar.gz
-  mv nexus-${NEXUS_VERSION} nexus/
+  pushd nexus
+  tar xvfz ../nexus-${NEXUS_VERSION}-bundle.tar.gz
+  popd
 }
 
 apply_patch() {
