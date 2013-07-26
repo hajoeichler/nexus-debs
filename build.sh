@@ -26,7 +26,7 @@ if [ "$1" != "-b" ]; then
   exit 1
 fi
 
-readonly NEXUS_VERSION="2.5.1-01"
+readonly NEXUS_VERSION="2.6.0-05"
 
 download
 unpack_and_move
